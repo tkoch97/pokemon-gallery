@@ -4,33 +4,37 @@ import { Container } from '@mui/system';
 import { Grid } from '@mui/material';
 import NavBar from '../components/navBar';
 import PokemonCard from '../components/pokemonCard';
+import { getPokemons } from '../functions/getPokemons';
 
 export const Home = () => {
   
-    const [pokemons, setPokemons] = useState([]);
+  const [pokemons, setPokemons] = useState([]);
   
     useEffect(() => {
-      getPokemons();
+      getPokemons(setPokemons);
     }, [])
-    
 
-    const getPokemons = () => {
+    const pokemonFilter = (name) => {
 
-      const endPoints = [];
-      for (var i = 1; i < 11; i++ ) {
-        endPoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+      var filteredPokemons = [];
+
+      if(name === ""){
+        getPokemons(setPokemons)
       }
 
-      const endPointsResponses = axios.all(endPoints.map((endPoint) => axios.get(endPoint)))
-      .then((resp) => setPokemons(resp))
-      .catch((error) => console.log(error));
-    };
+      for(var i in pokemons) {
+        if(pokemons[i].data.name.includes(name)) {
+          filteredPokemons.push(pokemons[i]);
+          setPokemons(filteredPokemons);
+        }
+      }
 
+    }
 
   return (
     <div>
       <header>
-        <NavBar className='navBar' />
+        <NavBar className='navBar' pokemonFilter={pokemonFilter} />
       </header>
 
       <main className='dashboard'>
@@ -42,7 +46,9 @@ export const Home = () => {
             {pokemons.map((pokemon, key) => (
               <Grid  className='pokeCard' item xs={2} key={key}>
                 <PokemonCard name={pokemon.data.name} 
-                img={pokemon.data.sprites.front_default} />
+                img={pokemon.data.sprites.front_default}
+                types={pokemon.data.types}
+                />
               </Grid>
             ))}
 

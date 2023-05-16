@@ -47,7 +47,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-export default function NavBar() {
+export default function NavBar({pokemonFilter}) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" 
@@ -61,7 +61,7 @@ export default function NavBar() {
           }}
         >
             <Box component='img' src='/assets/img/POKEMON_GALLERY_LOGO.png' height='3em'/>
-          <Search>
+          <Search onChange={(e) => pokemonFilter(e.target.value)}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
