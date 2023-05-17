@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Container, Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import NavBar from '../components/navBar';
-import PokemonCard from '../components/pokemonCard';
 import { getPokemons } from '../functions/getPokemons';
-import LoadAnimation from '../components/loading';
+import { createCards } from '../functions/createCards';
+import { creatPagination } from '../functions/createPagination';
 
 export const Home = () => {
   
   const [pokemons, setPokemons] = useState([]);
+
+  const [currentPage, setCurrentPage] = useState([1]);
+  const cardsPerPage = 10;
   
     useEffect(() => {
       getPokemons(setPokemons);
@@ -29,42 +32,24 @@ export const Home = () => {
       }
     }
 
-    const createContent = () => {
-
-      if(pokemons.length === 0) {
-        return <Box className='loadBox' style={{position: 'fixed', left:'46%', top: '50%'}}><LoadAnimation /></Box>
-      }
-
-      return (pokemons.map((pokemon, key) => (
-        <Grid  className='pokeCard' item xs={12} sm={6} md={4} lg={2} key={key}>
-          <PokemonCard name={pokemon.data.name} 
-          img={pokemon.data.sprites.front_default}
-          types={pokemon.data.types}
-          />
-        </Grid>
-      )))
-
-    }
-
   return (
     <div>
       <header>
-        <NavBar className='navBar' style={{}} pokemonFilter={pokemonFilter} />
+        <NavBar className='navBar' pokemonFilter={pokemonFilter} />
       </header>
 
-      <Container maxWidth='xg'>
+      <Container className='main'direction='column' maxWidth='xl'>
 
-        <div className='gallery'>
-
-          <Grid className='grid' container spacing={3} style={{textAlign: 'center'}}>
+          <Grid className='grid' container spacing={2} direction='row' style={{textAlign: 'center', justifyContent: 'center'}}>
             
-            {createContent()}
+            {createCards(pokemons, currentPage, cardsPerPage)}
 
           </Grid>
 
-        </div>
-
       </Container>
+
+        {creatPagination(pokemons, cardsPerPage, currentPage, setCurrentPage)}
+
     </div>
 
   );
