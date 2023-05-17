@@ -52,7 +52,8 @@ export default function NavBar({pokemonFilter}) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" 
       style={{
-        background: '#c43030'
+        background: '#c43030',
+        marginBottom: '3.0rem'
       }}>
         <Toolbar
           style={{
@@ -61,7 +62,7 @@ export default function NavBar({pokemonFilter}) {
           }}
         >
             <Box component='img' src='/assets/img/POKEMON_GALLERY_LOGO.png' height='3em'/>
-          <Search onChange={(e) => pokemonFilter(e.target.value)}>
+          <Search onChange={(search) => pokemonFilter(search.target.value)}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>

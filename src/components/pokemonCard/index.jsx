@@ -4,18 +4,12 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { handlePokemonType } from '../../functions/handleType';
 
 export default function PokemonCard({name, img, types}) {
 
-  const handleType = () => {
-    if(types[1]) {
-      return types[0].type.name + "," + types[1].type.name
-    }
-    return types[0].type.name
-  }
-
   return (
-    <Card sx={{ maxWidth: 250 }}>
+    <Card sx={{ maxWidth: 500 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -23,12 +17,17 @@ export default function PokemonCard({name, img, types}) {
           image={img}
           alt={name}
         />
-        <CardContent style={{borderRadius: '30em'}}>
+        <CardContent>
           <Typography gutterBottom variant="h6" component="div">
             {name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Type: {handleType()}
+          <Typography variant="body2" color="text.secondary" 
+          style={{
+              display: 'flex', 
+              gap: '0.5em', 
+              justifyContent: 'center'
+            }}>
+            <h4>Type:</h4> {handlePokemonType(types)}
           </Typography>
         </CardContent>
       </CardActionArea>

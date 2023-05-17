@@ -7,18 +7,3 @@
 body {
   background: #f9f9f9;
 }
-
-.grid {
-  justify-content: center;
-  padding: 5.0em 0em 3.0em 0;
-}
-
-.grid .pokeCard {
-  margin: 0em 1.0em 2.0em 1.0em;
-}
-
-@media (min-width: 650px) {
-  .grid {
-    flex-direction: column;
-  }
-}
