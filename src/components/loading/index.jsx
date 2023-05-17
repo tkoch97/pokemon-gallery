@@ -4,7 +4,7 @@ import CircularProgress from '@mui/joy/CircularProgress';
 import Sheet from '@mui/joy/Sheet';
 
 export default function CircularProgressColors() {
-  const [variant, setVariant] = React.useState('solid');
+  
   return (
     <Box
       sx={{
@@ -20,7 +20,7 @@ export default function CircularProgressColors() {
           gap: 1,
         }}
       >
-        <CircularProgress variant={variant} color="danger" />
+        <CircularProgress color="danger" />
       </Box>
       <Sheet
         sx={{

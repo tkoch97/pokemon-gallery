@@ -58,19 +58,18 @@ export default function NavBar({pokemonFilter}) {
         <Toolbar
           style={{
             display: 'flex',
-            justifyContent: 'space-between'
+            gap:'2.0rem'
           }}
         >
-            <Box component='img' src='/assets/img/POKEMON_GALLERY_LOGO.png' height='3em'/>
-          <Search onChange={(search) => pokemonFilter(search.target.value)}>
+          <Box component='img' src='/assets/img/POKEMON_GALLERY_LOGO.png' height='4em'/>
+
+          <Search onChange={(event) => pokemonFilter(event.target.value)}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Buscar"
-              inputProps={{ 'aria-label': 'search' }}
-            />
+            <StyledInputBase placeholder="Search" inputProps={{ 'aria-label': 'search' }} />
           </Search>
+
         </Toolbar>
       </AppBar>
     </Box>
