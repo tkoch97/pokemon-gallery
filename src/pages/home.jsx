@@ -4,35 +4,23 @@ import NavBar from '../components/navBar';
 import { getPokemons } from '../functions/getPokemons';
 import { createCards } from '../functions/createCards';
 import { creatPagination } from '../functions/createPagination';
+import { pokemonFilter } from '../functions/pokemonFilter';
 
 export const Home = () => {
   
   const [pokemons, setPokemons] = useState([]);
   const [currentPage, setCurrentPage] = useState([1]);
-  const cardsPerPage = 10;
+  const cardsPerPage = 5;
   
     useEffect(() => {
       getPokemons(setPokemons);
     }, [])
 
-    const pokemonFilter = (name) => {
-    
-      if(name === ""){
-        getPokemons(setPokemons)
-      } else {
-        const filteredPokemons = pokemons.filter((pokemon) => pokemon.data.name.includes(name));
-        setPokemons(filteredPokemons);
-        setCurrentPage(1);
-      }
-    }
-
   return (
     <div>
       <header>
-        <NavBar className='navBar' pokemonFilter={pokemonFilter} />
+        <NavBar className='navBar' pokemonFilter={(name) => pokemonFilter(name, pokemons, setPokemons, setCurrentPage, getPokemons)} />
       </header>
-
-
 
         <Container className='main'direction='column' maxWidth='xl'>
             <Grid className='grid' container spacing={2} direction='row' style={{textAlign: 'center', justifyContent: 'center'}}>
