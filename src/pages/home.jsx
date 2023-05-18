@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Container, Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import NavBar from '../components/navBar';
 import { getPokemons } from '../functions/getPokemons';
 import { createCards } from '../functions/createCards';
@@ -31,11 +31,7 @@ export const Home = () => {
         </Container>
 
         <footer>
-          <Box style={{margin:'3.0rem'}}>
-          </Box>
-          <Box style={{position:'', bottom:'0', left:'0', right:'0', textAlign:'center'}}>
             {creatPagination(pokemons, cardsPerPage, currentPage, setCurrentPage)}
-          </Box>
         </footer>
 
     </div>
