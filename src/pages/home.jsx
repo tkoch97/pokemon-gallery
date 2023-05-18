@@ -16,18 +16,13 @@ export const Home = () => {
     }, [])
 
     const pokemonFilter = (name) => {
-
-      var filteredPokemons = [];
     
       if(name === ""){
         getPokemons(setPokemons)
-      }
-    
-      for(var i in pokemons) {
-        if(pokemons[i].data.name.includes(name)) {
-          filteredPokemons.push(pokemons[i]);
-          setPokemons(filteredPokemons);
-        }
+      } else {
+        const filteredPokemons = pokemons.filter((pokemon) => pokemon.data.name.includes(name));
+        setPokemons(filteredPokemons);
+        setCurrentPage(1);
       }
     }
 
