@@ -63,7 +63,7 @@ export default function NavBar({pokemonFilter}) {
         >
           <Box component='img' src='/assets/img/POKEMON_GALLERY_LOGO.png' height='4em'/>
 
-          <Search onChange={(event) => pokemonFilter(event.target.value)}>
+          <Search onChange={(event) => pokemonFilter(event.target.value.toLowerCase())}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
