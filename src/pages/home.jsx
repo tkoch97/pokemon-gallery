@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Container, Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import NavBar from '../components/navBar';
 import { getPokemons } from '../functions/getPokemons';
 import { createCards } from '../functions/createCards';
