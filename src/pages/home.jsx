@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Grid } from '@mui/material';
+import { Box, Container, Grid } from '@mui/material';
 import NavBar from '../components/navBar';
 import { getPokemons } from '../functions/getPokemons';
 import { createCards } from '../functions/createCards';
@@ -10,7 +10,7 @@ export const Home = () => {
   
   const [pokemons, setPokemons] = useState([]);
   const [currentPage, setCurrentPage] = useState([1]);
-  const cardsPerPage = 5;
+  const cardsPerPage = 10;
   
     useEffect(() => {
       getPokemons(setPokemons);
@@ -19,7 +19,7 @@ export const Home = () => {
   return (
     <div>
       <header>
-        <NavBar className='navBar' pokemonFilter={(name) => pokemonFilter(name, pokemons, setPokemons, setCurrentPage, getPokemons)} />
+        <NavBar className='navBar' pokemonFilter={(name) => pokemonFilter(name, pokemons, setPokemons, setCurrentPage, getPokemons)}/>
       </header>
 
         <Container className='main'direction='column' maxWidth='xl'>
@@ -30,7 +30,13 @@ export const Home = () => {
             </Grid>
         </Container>
 
-        {creatPagination(pokemons, cardsPerPage, currentPage, setCurrentPage)}
+        <footer>
+          <Box style={{margin:'3.0rem'}}>
+          </Box>
+          <Box style={{position:'', bottom:'0', left:'0', right:'0', textAlign:'center'}}>
+            {creatPagination(pokemons, cardsPerPage, currentPage, setCurrentPage)}
+          </Box>
+        </footer>
 
     </div>
 
