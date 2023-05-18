@@ -6,7 +6,7 @@ export default function BasicPagination({count, currentPage, onPageChange}) {
   const disableButtons = count === 1;
   
   return (
-    <Stack spacing={2} style={{display:'flex',flexDirection:'row',justifyContent:'center', padding:'0rem 0 1.0rem 0', background:'#f9f9f9'}}>
+    <Stack spacing={2} style={{display:'flex',flexDirection:'row',justifyContent:'center', padding:'3.0rem 0 2.0rem 0'}}>
       <Pagination count={count} page={currentPage} onChange={onPageChange} disabled={disableButtons}/>
     </Stack>
   );
