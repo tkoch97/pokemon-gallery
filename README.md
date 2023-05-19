@@ -18,6 +18,8 @@
 
 #
 
+## 📃 Docs
+
 [🔗 Notations link - Study and Planning](https://rectangular-lemonade-0d3.notion.site/Documenta-o-e-estudo-para-desafio-da-Smart-NX-Pok-mon-Gallery-React-2c2a51526fdb419db04ccd044b6ae609)
 
 #
