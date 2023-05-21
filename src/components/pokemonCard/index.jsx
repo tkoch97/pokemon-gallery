@@ -13,9 +13,12 @@ export default function PokemonCard({name, img, types}) {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="200"
+          height='150em'
           image={img}
           alt={name}
+          style={{
+            objectFit:'contain'
+          }}
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">

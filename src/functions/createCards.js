@@ -4,7 +4,7 @@ import PokemonCard from '../components/pokemonCard';
 
 
 export const createCards = (pokemons, currentPage, cardsPerPage) => {
-
+  
   const startIndex = (currentPage - 1) * cardsPerPage;
   const endIndex = startIndex + cardsPerPage;
   const visibleCards = pokemons.slice(startIndex, endIndex);
