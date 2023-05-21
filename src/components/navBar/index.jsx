@@ -61,7 +61,7 @@ export default function NavBar({pokemonFilter}) {
             gap:'2.0rem'
           }}
         >
-          <Box component='img' src='/assets/img/POKEMON_GALLERY_LOGO.png' height='4em'/>
+          <Box component='img' src='/assets/img/POKEMON_GALLERY_LOGO.png' height='clamp(2em, 2em + 2vw, 4em)'/>
 
           <Search onChange={(event) => pokemonFilter(event.target.value.toLowerCase())}>
             <SearchIconWrapper>
