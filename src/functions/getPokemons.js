@@ -9,5 +9,5 @@ export const getPokemons = (setPokemons) => {
 
   axios.all(endPoints.map((endPoint) => axios.get(endPoint)))
   .then((resp) => setPokemons(resp))
-  .catch(() => alert("Desculpe, houve algum erro inesperado ou um breve atraso no recebimento dos dados."));
+  .catch(() => alert("Desculpe, houve algum erro inesperado com o carregamento dos cards."));
 };

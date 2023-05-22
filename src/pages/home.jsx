@@ -17,17 +17,17 @@ export const Home = () => {
     }, [])
 
   return (
+
     <div>
+
       <header>
         <NavBar className='navBar' pokemonFilter={(name) => pokemonFilter(name, pokemons, setPokemons, setCurrentPage, getPokemons)}/>
       </header>
 
-        <Container className='main'direction='column' maxWidth='xl'>
-            <Grid className='grid' container spacing={2} direction='row' style={{textAlign: 'center', justifyContent: 'center'}}>
-              
-              {createCards(pokemons, currentPage, cardsPerPage)}
-
-            </Grid>
+        <Container className='main' direction='column' maxWidth='xl' style={{}}>
+          <div className='drawers'>
+                {createCards(pokemons, currentPage, cardsPerPage)}
+          </div>
         </Container>
 
         <footer>
